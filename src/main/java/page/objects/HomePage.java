@@ -1,4 +1,4 @@
-package page_objects;
+package page.objects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -35,17 +35,23 @@ public class HomePage {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", questionsBlockElement);
     }
 
+    private By questionID(int index) {
+        return By.id("accordion__heading-" + index);
+    }
 
-    public void clickOnQuestion(String questionID) {
-        String xpath = "//div[contains(@class, 'accordion')]//*[@id='" + questionID + "']";
-        By locator = By.xpath(xpath);
+    private By panelID(int index) {
+        return By.id("accordion__panel-" + index);
+    }
+
+    public void clickOnQuestion(int index) {
+        By locator = questionID(index);
         WebElement questionElement = wait.until(ExpectedConditions.elementToBeClickable(locator));
         questionElement.click();
     }
 
 
-    public String getAnswerText(String panelId) {
-        By locator = By.id(panelId);
+    public String getAnswerText(int index) {
+        By locator = panelID(index);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         return driver.findElement(locator).getText();

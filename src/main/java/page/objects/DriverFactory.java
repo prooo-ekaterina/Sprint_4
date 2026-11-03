@@ -1,4 +1,4 @@
-package page_objects;
+package page.objects;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;

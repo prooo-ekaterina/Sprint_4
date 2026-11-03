@@ -2,8 +2,8 @@ import org.junit.*;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.WebDriver;
-import page_objects.DriverFactory;
-import page_objects.OrderPage;
+import page.objects.DriverFactory;
+import page.objects.OrderPage;
 
 @RunWith(Parameterized.class)
 public class OrderPositiveTest {
